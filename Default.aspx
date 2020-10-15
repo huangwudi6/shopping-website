@@ -31,13 +31,71 @@
                         <a href="#"><div class="category-item">科技</div></a>
                     </div>
                     <div class="content">
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        <div><div class="content-item"></div><div class="pay"></div></div>
-                        
+                        <div class="book-ctt">
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="content-item">
+                                    <asp:ImageButton CssClass="book-img" ImageUrl="./images/ts1.jpg" runat="server" />
+                                    <asp:Label CssClass="book-lbl" runat="server" Text="信谊世界精选图画书-猜猜我有多爱你"></asp:Label>
+                                </div>
+                                <div class="pay">
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-nav">
+                            &lt;上一页 1 2 3 4 5 下一页&gt;
+                        </div>
                     </div>
                 </div>
             </div>
