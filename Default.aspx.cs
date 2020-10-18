@@ -9,6 +9,13 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["username"] != null)
+        {
+            Response.Write(Session["username"]);
+        }
+        else
+        {
+            Response.Write("122");
+        }
     }
 }

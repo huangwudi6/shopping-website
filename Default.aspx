@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>啦啦书屋</title>
     <link href="./css/basic.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -14,8 +14,8 @@
             <div class="top">
                 <div class="main">
                     <asp:Image ImageUrl="./images/logo.png" CssClass="logo" runat="server" />
-                    <asp:HyperLink runat="server" CssClass="login l-r" NavigateUrl="#" Target="_self" Text="登录"></asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="register l-r" NavigateUrl="#" Target="_self" Text="注册"></asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="login l-r" NavigateUrl="./login.aspx" Target="_self" Text="登录"></asp:HyperLink>
+                    <asp:HyperLink runat="server" CssClass="register l-r" NavigateUrl="./register.aspx" Target="_self" Text="注册"></asp:HyperLink>
                 </div>
             </div>
             <div class="middle">
