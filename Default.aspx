@@ -12,10 +12,15 @@
     <form id="form1" runat="server">
         <div>
             <div class="top">
+                
                 <div class="main">
                     <asp:Image ImageUrl="./images/logo.png" CssClass="logo" runat="server" />
-                    <asp:HyperLink runat="server" CssClass="login l-r" NavigateUrl="./login.aspx" Target="_self" Text="登录"></asp:HyperLink>
-                    <asp:HyperLink runat="server" CssClass="register l-r" NavigateUrl="./register.aspx" Target="_self" Text="注册"></asp:HyperLink>
+                    
+                    <asp:HyperLink ID="login" runat="server" CssClass="login l-r" NavigateUrl="./login.aspx" Target="_self" Text="登录"></asp:HyperLink>
+                    <asp:HyperLink ID="register" runat="server" CssClass="register l-r" NavigateUrl="./register.aspx" Target="_self" Text="注册"></asp:HyperLink>
+                    
+                    <asp:Label ID="user_welcome" runat="server" CssClass="user-welcome" Visible="False">huang,欢迎您！</asp:Label>
+                    <asp:LinkButton ID="logout" runat="server" CssClass="register l-r" Text="注销" OnClick="logout_Click" Visible="False" ></asp:LinkButton>
                 </div>
             </div>
             <div class="middle">

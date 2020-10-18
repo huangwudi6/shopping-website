@@ -71,7 +71,7 @@
 			<!--3-->
 			<div class="music-lgin-text">
 <%--				<input class="music-qd inputs" type="button" value="确定" />--%>
-				<asp:Button ID="submit" runat="server" CssClass="music-qd inputs" Text="登录" OnClick="login_Click"/>
+				<asp:Button ID="login_btn" runat="server" CssClass="music-qd inputs" Text="登录" OnClick="login_Click"/>
 			</div>
 
 		</div>
