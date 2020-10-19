@@ -99,10 +99,25 @@ body {
 	width: 320px;
 	height: 40px;
 	margin: 30px auto ;
+	position:relative;
 }
 .inputs{
 	width: 98%;
-	height: 40px;padding-left: 2%;
+	height: 40px;
+	padding-left: 2%;
+}
+
+.checkcode-input {
+	height: 40px;
+	width:210px;
+	padding-left: 2%;
+}
+
+.checkcode-img{
+	position:absolute;
+	right:0;
+	bottom:0;
+	height:28px;
 }
 
 .left-dh {
@@ -484,3 +499,4 @@ body {
 	top: -60px;
 	left: 80px;
 }
+

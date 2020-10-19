@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,6 +9,17 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    string category = "ts";
+    static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dzy.mdf;Integrated Security=True";
+    static SqlConnection conn = new SqlConnection(str);
+    //add
+    SqlCommand insertcmd = conn.CreateCommand();
+    //select
+    SqlCommand selectcmd = conn.CreateCommand();
+    //delete
+    SqlCommand deletecmd = conn.CreateCommand();
+    //update
+    SqlCommand updatecmd = conn.CreateCommand();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] != null)
@@ -30,6 +43,15 @@ public partial class _Default : System.Web.UI.Page
 
 
         }
+        conn.Open();
+        selectcmd.CommandText = "select * from goods where g_category = '" + category + "'; ";
+        //cmd = new SqlCommand("Select * from Comment Order By Post_Date desc", con);
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        goods.DataSource = ds;
+        goods.DataBind();
+        conn.Close();
     }
 
 

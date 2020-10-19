@@ -10,14 +10,10 @@ public partial class login : System.Web.UI.Page
 {
     static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dzy.mdf;Integrated Security=True";
     static SqlConnection conn = new SqlConnection(str);
-    //add
-    SqlCommand insertcmd = conn.CreateCommand();
+
     //select
     SqlCommand selectcmd = conn.CreateCommand();
-    //delete
-    SqlCommand deletecmd = conn.CreateCommand();
-    //update
-    SqlCommand updatecmd = conn.CreateCommand();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 

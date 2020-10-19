@@ -65,25 +65,40 @@
     flex-direction:column;
     
 }
-.category-item{
-    height:50px;
-    width:170px;
+.category-item {
+    height: 50px;
+    width: 170px;
     /*border-bottom:2px solid #184DB0;*/
-    text-align:center;
-    line-height:50px;
-    font-size:20px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    box-sizing:border-box;
+    border-radius:9px 0 0 9px;
 }
 .category-item:hover{
-    background-color:#184DB0;
-    color:#fff;
+    /*background-color:#184DB0;
+    color:#fff;*/
+    border:2px solid #184DB0;
+    border-right:none;
+}
+.selected {
+    background-color: #184DB0;
+    color: #fff;
 }
 .item-first{
     background-color:#184DB0;
     font-size:21px;
     font-weight:bold;
     color:#fff;
-    margin-bottom:5px;
+    
     letter-spacing:.2em;
+
+    height: 50px;
+    width: 170px;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 5px;
 }
 .category a{
     text-decoration:none;
@@ -108,8 +123,9 @@
     text-align:center;
 }
 .content-item{
+    position:relative;
     width:200px;
-    height:270px;
+    height:290px;
     /*border:1px solid #000;*/
     margin-left:50px;
     /*display:flex;
@@ -118,13 +134,19 @@
 }
 .book-img{
     width:100%;
-    margin-bottom:20px;
+    margin-bottom:10px;
+}
+.book-price {
+    color: #FF6633;
+    position:absolute;
+    left:0;
+    bottom:0;
 }
 .pay {
     width: 200px;
     height: 30px;
     /*border: 1px solid #000;*/
-    margin:30px 0 40px 50px;
+    margin:20px 0 40px 50px;
     display:flex;
     justify-content:space-between;
 }
