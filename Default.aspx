@@ -28,25 +28,30 @@
                 <div class="main">
                     <div class="category">
                         <div class="item-first">图书分类列表</div>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="ts"><div class="category-item selected">童书</div></asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="lz">
-                            <div class="category-item">励志</div>
-                        </asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="sh">
-                            <div class="category-item">生活</div>
-                        </asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
-                            <div class="category-item">教育</div>
-                        </asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="wy">
-                            <div class="category-item">文艺</div>
-                        </asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
-                            <div class="category-item">经营</div>
-                        </asp:LinkButton>
-                        <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="kj">
-                            <div class="category-item">科技</div>
-                        </asp:LinkButton>
+                        <asp:ScriptManager runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="ts"><div class="category-item selected">童书</div></asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="lz">
+                                    <div class="category-item">励志</div>
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="sh">
+                                    <div class="category-item">生活</div>
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
+                                    <div class="category-item">教育</div>
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="wy">
+                                    <div class="category-item">文艺</div>
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
+                                    <div class="category-item">经营</div>
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="kj">
+                                    <div class="category-item">科技</div>
+                                </asp:LinkButton>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="content">
                         <%--<div class="book-ctt">
@@ -62,7 +67,7 @@
                                 </div>
                             </div>
                         </div>--%>
-                        <asp:ScriptManager runat="server"></asp:ScriptManager>
+                        <%--<asp:ScriptManager runat="server"></asp:ScriptManager>--%>
                         <asp:UpdatePanel runat="server">
                             <ContentTemplate>
                                 <div class="book-ctt">
