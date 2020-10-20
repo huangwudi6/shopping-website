@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
     string category = "ts";
+    static int start = 1;
+    static int end = 6;
     static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dzy.mdf;Integrated Security=True";
     static SqlConnection conn = new SqlConnection(str);
     //add
@@ -43,15 +45,18 @@ public partial class _Default : System.Web.UI.Page
 
 
         }
-        conn.Open();
-        selectcmd.CommandText = "select * from goods where g_category = '" + category + "'; ";
-        //cmd = new SqlCommand("Select * from Comment Order By Post_Date desc", con);
-        DataSet ds = new DataSet();
-        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
-        da.Fill(ds);
-        goods.DataSource = ds;
-        goods.DataBind();
-        conn.Close();
+        if (!IsPostBack)
+        {
+            conn.Open();
+            selectcmd.CommandText = "select * from goods where g_category = '" + category + "' and g_id between " + start + " and " + end + "; ";
+            //cmd = new SqlCommand("Select * from Comment Order By Post_Date desc", con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+            da.Fill(ds);
+            goods.DataSource = ds;
+            goods.DataBind();
+            conn.Close();
+        }
     }
 
 
@@ -62,5 +67,56 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect(".");
     }
 
-    
+
+
+    protected void next_page_Click(object sender, EventArgs e)
+    {
+        start += 6;
+        end += 6;
+
+        conn.Open();
+        selectcmd.CommandText = "select * from goods where g_category = '" + category + "' and g_id between " + start + " and " + end + "; ";
+        // Response.Write(selectcmd.CommandText);
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        goods.DataSource = ds;
+        goods.DataBind();
+        conn.Close();
+    }
+
+    protected void last_page_Click(object sender, EventArgs e)
+    {
+        start -= 6;
+        end -= 6;
+
+        conn.Open();
+        selectcmd.CommandText = "select * from goods where g_category = '" + category + "' and g_id between " + start + " and " + end + "; ";
+        // Response.Write(selectcmd.CommandText);
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        goods.DataSource = ds;
+        goods.DataBind();
+        conn.Close();
+    }
+
+    protected void changeTo_Click(object sender, EventArgs e)
+    {
+        //category = e.CommandArgument.ToString();
+        category = (((LinkButton)sender).CommandArgument.ToString()).ToString();
+        //Response.Write(category);
+
+        start = 1;
+        end = 6;
+        conn.Open();
+        selectcmd.CommandText = "select * from goods where g_category = '" + category + "' and g_id between " + start + " and " + end + "; ";
+        // Response.Write(selectcmd.CommandText);
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        goods.DataSource = ds;
+        goods.DataBind();
+        conn.Close();
+    }
 }
