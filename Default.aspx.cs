@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    string category = "ts";
+    static string category = "ts";
     static int start = 1;
     static int end = 6;
     static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dzy.mdf;Integrated Security=True";
@@ -32,7 +32,8 @@ public partial class _Default : System.Web.UI.Page
             user_welcome.Text = Session["username"] + "，欢迎您！";
             user_welcome.Visible = true;
             logout.Visible = true;
-
+            shoppingCart.Visible = true;
+            shoppingCartImg.Visible = true;
 
         }
         else
@@ -42,6 +43,8 @@ public partial class _Default : System.Web.UI.Page
             register.Visible = true;
             user_welcome.Visible = false;
             logout.Visible = false;
+            shoppingCart.Visible = false;
+            shoppingCartImg.Visible = false;
 
 
         }
@@ -118,5 +121,7 @@ public partial class _Default : System.Web.UI.Page
         goods.DataSource = ds;
         goods.DataBind();
         conn.Close();
+
+        
     }
 }

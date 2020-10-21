@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>啦啦书屋</title>
     <link href="./css/basic.css" rel="stylesheet" type="text/css" />
-    <script src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+    <script src="./js/jquery-3.1.0.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,6 +21,10 @@
                     <asp:HyperLink ID="register" runat="server" CssClass="register l-r" NavigateUrl="./register.aspx" Target="_self" Text="注册"></asp:HyperLink>
 
                     <asp:Label ID="user_welcome" runat="server" CssClass="user-welcome" Visible="False"></asp:Label>
+                    <div class="l-r shopping-cart">
+                        <asp:Image ID="shoppingCartImg" ImageUrl="./images/shoppingCart.png" runat="server" CssClass="shopping-cart-img" Visible="False" />
+                        <asp:HyperLink ID="shoppingCart" runat="server" Text="购物车" NavigateUrl="./register.aspx" Target="_blank" Visible="False"></asp:HyperLink>
+                    </div>
                     <asp:LinkButton ID="logout" runat="server" CssClass="register l-r" Text="注销" OnClick="logout_Click" Visible="False"></asp:LinkButton>
                 </div>
             </div>
@@ -28,30 +32,36 @@
                 <div class="main">
                     <div class="category">
                         <div class="item-first">图书分类列表</div>
-                        <asp:ScriptManager runat="server"></asp:ScriptManager>
-                        <asp:UpdatePanel runat="server">
-                            <ContentTemplate>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="ts"><div class="category-item selected">童书</div></asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="lz">
+                        <asp:ScriptManager runat="server">
+                            <%--<Scripts>
+                                <asp:ScriptReference Path="./js/jquery-3.1.0.min.js" />
+                                <asp:ScriptReference Path="./js/default.js" />
+                            </Scripts>--%>
+                        </asp:ScriptManager>
+                        <%--<asp:UpdatePanel runat="server" UpdateMode="Always">
+                            <ContentTemplate>--%>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="ts" ID="ts"><div class="category-item selected">童书</div></asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="lz" ID="lz">
                                     <div class="category-item">励志</div>
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="sh">
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="sh" ID="sh">
                                     <div class="category-item">生活</div>
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy" ID="jy">
                                     <div class="category-item">教育</div>
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="wy">
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="wy" ID="wy">
                                     <div class="category-item">文艺</div>
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jy">
-                                    <div class="category-item">经营</div>
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="jg" ID="jg">
+                                    <div class="category-item">经管</div>
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="kj">
+                                <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="kj" ID="kj">
                                     <div class="category-item">科技</div>
                                 </asp:LinkButton>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                            <%--</ContentTemplate>
+                            
+                        </asp:UpdatePanel>--%>
                     </div>
                     <div class="content">
                         <%--<div class="book-ctt">
@@ -97,11 +107,18 @@
                             <Triggers>
                                 <asp:AsyncPostBackTrigger ControlID="last_page" EventName="Click" />
                                 <asp:AsyncPostBackTrigger ControlID="next_page" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="ts" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="lz" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="sh" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="jy" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="wy" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="jg" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="kj" EventName="Click" />
                             </Triggers>
                         </asp:UpdatePanel>
                         <div class="content-nav">
-                            <asp:LinkButton runat="server" ID="last_page" Text="上一页" OnClick="last_page_Click"></asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="next_page" Text="下一页" OnClick="next_page_Click"></asp:LinkButton>
+                            <asp:LinkButton runat="server" CssClass="change-page" ID="last_page" Text="<< 上一页" OnClick="last_page_Click"></asp:LinkButton>
+                            <asp:LinkButton runat="server" CssClass="change-page" ID="next_page" Text="下一页 >>" OnClick="next_page_Click"></asp:LinkButton>
                         </div>
                     </div>
                 </div>
