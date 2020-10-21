@@ -23,7 +23,7 @@
                     <asp:Label ID="user_welcome" runat="server" CssClass="user-welcome" Visible="False"></asp:Label>
                     <div class="l-r shopping-cart">
                         <asp:Image ID="shoppingCartImg" ImageUrl="./images/shoppingCart.png" runat="server" CssClass="shopping-cart-img" Visible="False" />
-                        <asp:HyperLink ID="shoppingCart" runat="server" Text="购物车" NavigateUrl="./register.aspx" Target="_blank" Visible="False"></asp:HyperLink>
+                        <asp:HyperLink ID="shoppingCart" runat="server" Text="购物车" NavigateUrl="./shoppingCart.aspx" Target="_blank" Visible="False"></asp:HyperLink>
                     </div>
                     <asp:LinkButton ID="logout" runat="server" CssClass="register l-r" Text="注销" OnClick="logout_Click" Visible="False"></asp:LinkButton>
                 </div>
