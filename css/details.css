@@ -42,4 +42,30 @@
 .book-title{
     font-size:24px;
     font-weight:bold;
+    display:block;
+}
+.book-info{
+    display:block;
+    margin-top:40px;
+}
+.book-price {
+    font-weight: 700;
+    font-family: Verdana,Tahoma,arial;
+    font-size:22px;
+    color: #FF6633;
+    margin-top:80px;
+    display:block;
+    height:50px;
+    line-height:50px;
+    background-color:#efefef;
+    padding-left:20px;
+}
+.add-btn{
+    margin-top:120px;
+    width:200px;
+    height:50px;
+    font-size:20px;
+    background-color:#184DB0;
+    color:#fff;
+    border:none;
 }

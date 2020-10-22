@@ -20,9 +20,14 @@
             </div>
             <div class="middle">
                 <div class="main">
-                    <asp:Image runat="server" CssClass="book-img" ImageUrl="./images/ts/1.jpg" />
+                    <asp:Image ID="book_img" runat="server" CssClass="book-img" ImageUrl="./images/ts/1.jpg" />
                     <div class="main-r">
-                        <asp:Label runat="server" CssClass="book-title" Text="skjldg克己奉公夹啊科锐国际俺是"></asp:Label>
+                        <asp:Label ID="book_title" runat="server" CssClass="book-title" Text="null"></asp:Label>
+                        <asp:Label ID="book_info" runat="server" CssClass="book-info" Text="null"></asp:Label>
+                        <asp:Label CssClass="book-price" runat="server" Text='￥'>
+                            <asp:Label ID="book_price" runat="server" Text="null"></asp:Label>
+                        </asp:Label>
+                        <asp:Button runat="server" Text="加入购物车" CssClass="add-btn" />
                     </div>
                 </div>
             </div>
