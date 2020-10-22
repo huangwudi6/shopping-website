@@ -10,6 +10,8 @@ public partial class register : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+        this.password.Attributes["value"] = this.password.Text;
+        this.password2.Attributes["value"] = this.password2.Text;
     }
 
     protected void CvCheckCode_ServerValidate(object source, ServerValidateEventArgs args)
@@ -34,8 +36,6 @@ public partial class register : System.Web.UI.Page
         if (!Page.IsValid)
         {
             Alert(this, "验证码错误！");
-            password.Text = pwd;
-            password2.Text = pwd2;
         }
         else
         {
