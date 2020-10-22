@@ -75,12 +75,14 @@
                 <asp:TextBox ID="txtCheckCode" CssClass="checkcode-input" runat="server" placeholder="checkcode"></asp:TextBox>       
 				<asp:Image ID="Image1" runat="server" CssClass="checkcode-img" onclick="this.src=this.src+'?'" ImageAlign="Middle" ToolTip="看不清我，就点一下我吧！" ImageUrl="~/CheckCode.aspx" />
                 
+			</div>
+			<div class="music-lgin-text2">
 				<asp:RequiredFieldValidator ID="rfvCheckCode" runat="server" ControlToValidate="txtCheckCode" Display="Dynamic" ErrorMessage="请输入验证码！" SetFocusOnError="true">*</asp:RequiredFieldValidator>    
                 <asp:CustomValidator ID="cvCheckCode" runat="server" ControlToValidate="txtCheckCode" ErrorMessage="验证码错误" OnServerValidate="CvCheckCode_ServerValidate" SetFocusOnError="true"></asp:CustomValidator>
 			</div>
 			<!--5-->
 			<div class="music-lgin-text">
-				<asp:Button ID="register_btn" runat="server" CssClass="music-qd inputs" Text="注册"/>
+				<asp:Button ID="register_btn" runat="server" CssClass="music-qd inputs" Text="注册" OnClick="register_btn_Click"/>
 			</div>
 
 		</div>

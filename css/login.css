@@ -101,7 +101,13 @@ body {
 	margin: 30px auto ;
 	position:relative;
 }
-.inputs{
+.music-lgin-text2 {
+	width: 320px;
+	/*height: 20px;*/
+	margin: 0 auto;
+	position: relative;
+}
+.inputs {
 	width: 98%;
 	height: 40px;
 	padding-left: 2%;

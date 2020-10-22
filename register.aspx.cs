@@ -19,4 +19,36 @@ public partial class register : System.Web.UI.Page
         args.IsValid = true;
         if (myCode.ToString() != CheckCode) args.IsValid = false;
     }
+
+    public static void Alert(System.Web.UI.Page page, string msg)
+    {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "message", "<script type='text/javascript'>alert('" + msg.ToString() + "');</script>");
+    }
+
+    protected void register_btn_Click(object sender, EventArgs e)
+    {
+        string un = username.Text;
+        string pwd = password.Text;
+        string pwd2 = password2.Text;
+
+        if (!Page.IsValid)
+        {
+            Alert(this, "验证码错误！");
+            password.Text = pwd;
+            password2.Text = pwd2;
+        }
+        else
+        {
+            if (pwd == pwd2)
+            {
+                Alert(this, "两次密码一致");
+            }
+            else
+            {
+                Alert(this, "两次密码不一致");
+            }
+        }
+
+        
+    }
 }
