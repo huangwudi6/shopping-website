@@ -133,6 +133,34 @@ public partial class _Default : System.Web.UI.Page
 
     protected void addToShoppingCart_Click(object sender, EventArgs e)
     {
+        int id = int.Parse((((Button)sender).CommandArgument.ToString()).ToString());
+        decimal total = 0;
+        selectcmd.CommandText = "select g_price from goods where g_id=" + id + " and g_category='" + category + "'";
+        conn.Open();
+        SqlDataReader dr = selectcmd.ExecuteReader();
+        if (dr.HasRows)
+        {
+            dr.Read();
+            
+            string price = dr["g_price"].ToString();
+            total = decimal.Parse(price);
+
+        }
+
+        conn.Close();
         
+        
+        insertcmd.CommandText = "insert into shoppingcart values('" + id + "','" + category + "', 1 ," + total + ",'" + Session["username"] + "')";
+        conn.Open();
+        insertcmd.ExecuteNonQuery();
+
+        conn.Close();
+    }
+
+    protected void toDetails_Click(object sender, ImageClickEventArgs e)
+    {
+        int id = int.Parse((((ImageButton)sender).CommandArgument.ToString()).ToString());
+        string url = "./details.aspx?id=" + id + "&category=" + category;
+        Response.Redirect(url);
     }
 }

@@ -12,6 +12,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:ScriptManager runat="server"></asp:ScriptManager>
+            <%--<asp:UpdatePanel runat="server" ID="test">
+                <ContentTemplate>
+                    <asp:Label ID="label1" runat="server" Text="465514"></asp:Label>
+                </ContentTemplate>
+            </asp:UpdatePanel>--%>
             <div class="top">
 
                 <div class="main">
@@ -32,12 +38,12 @@
                 <div class="main">
                     <div class="category">
                         <div class="item-first">图书分类列表</div>
-                        <asp:ScriptManager runat="server">
+<%--                        <asp:ScriptManager runat="server">--%>
                             <%--<Scripts>
                                 <asp:ScriptReference Path="./js/jquery-3.1.0.min.js" />
                                 <asp:ScriptReference Path="./js/default.js" />
                             </Scripts>--%>
-                        </asp:ScriptManager>
+<%--                        </asp:ScriptManager>--%>
                         <%--<asp:UpdatePanel runat="server" UpdateMode="Always">
                             <ContentTemplate>--%>
                                 <asp:LinkButton runat="server" OnClick="changeTo_Click" CommandArgument="ts" ID="ts"><div class="category-item selected">童书</div></asp:LinkButton>
@@ -87,14 +93,14 @@
                                         <ItemTemplate>
                                             <div>
                                                 <div class="content-item">
-                                                    <asp:ImageButton CssClass="book-img" ImageUrl='<% #Eval("g_imgurl") %>' runat="server" />
+                                                    <asp:ImageButton CssClass="book-img" CommandArgument='<% #Eval("g_id") %>' OnClick="toDetails_Click" ImageUrl='<% #Eval("g_imgurl") %>' runat="server" />
                                                     <asp:Label CssClass="book-title" runat="server" Text='<% #Eval("g_name") %>'></asp:Label><br />
                                                     <asp:Label CssClass="book-price" runat="server" Text='￥'>
                                                         <asp:Label runat="server" Text='<% #Eval("g_price") %>'></asp:Label>
                                                     </asp:Label>
                                                 </div>
                                                 <div class="pay">
-                                                    <asp:Button runat="server" CssClass="pay-btn" ID="addToShoppingCart" Text="加入购物车" OnClick="addToShoppingCart_Click" OnClientClick="alert('kldfsgjk')" />
+                                                    <asp:Button runat="server" CssClass="pay-btn" ID="addToShoppingCart" CommandArgument='<% #Eval("g_id") %>' Text="加入购物车" OnClick="addToShoppingCart_Click" OnClientClick="alert('添加成功！')" />
                                                     <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
                                                 </div>
                                             </div>
