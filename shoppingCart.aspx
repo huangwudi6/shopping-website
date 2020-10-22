@@ -19,16 +19,36 @@
                 </div>
             </div>
             <div class="middle">
+                <div class="m-title">
+                    <div class="th1">商品图片</div>
+                    <div class="th2">标题</div>
+                    <div class="th3">单价</div>
+                    <div class="th3">数量</div>
+                    <div class="th3">总价</div>
+                </div>
                 <div class="m-main">
-                    <asp:UpdatePanel></asp:UpdatePanel>
-                    <div class="item">
-                        <asp:ImageButton runat="server" CssClass="item-img" ImageUrl="~/images/lz/1.jpg" />
-                        <asp:Label runat="server" CssClass="item-title" Text="URtoID日丰管我哦ID舒服个地方官iOSdryor破译的人和事都怕"></asp:Label>
-                        <asp:Label runat="server" CssClass="item-price" Text="￥39.99"></asp:Label>
-                        <asp:Label runat="server" Text="x3"></asp:Label>
-                        <asp:Label runat="server" Text="￥100.12"></asp:Label>
-                    </div>
-                    
+                    <asp:ScriptManager runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <asp:Repeater runat="server" ID="shopping_cart">
+                                <ItemTemplate>
+                                    <div class="item">
+                                        <asp:ImageButton runat="server" CssClass="item-img" ImageUrl='<% #Eval("g_imgurl") %>' />
+                                        <asp:Label runat="server" CssClass="item-title" Text='<% #Eval("g_name") %>'></asp:Label>
+                                        <asp:Label CssClass="item-price" runat="server" Text='￥'>
+                                            <asp:Label runat="server" Text='<% #Eval("g_price") %>'></asp:Label>
+                                        </asp:Label>
+                                        <asp:Label CssClass="item-price" runat="server" Text='x'>
+                                            <asp:Label runat="server" Text='<% #Eval("quantity") %>'></asp:Label>
+                                        </asp:Label>
+                                        <asp:Label CssClass="item-price" runat="server" Text='￥'>
+                                            <asp:Label runat="server" Text='<% #Eval("total") %>'></asp:Label>
+                                        </asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
 
             </div>

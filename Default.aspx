@@ -94,7 +94,7 @@
                                                     </asp:Label>
                                                 </div>
                                                 <div class="pay">
-                                                    <asp:Button runat="server" CssClass="pay-btn" Text="加入购物车" />
+                                                    <asp:Button runat="server" CssClass="pay-btn" ID="addToShoppingCart" Text="加入购物车" OnClick="addToShoppingCart_Click" OnClientClick="alert('kldfsgjk')" />
                                                     <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
                                                 </div>
                                             </div>

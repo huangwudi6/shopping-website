@@ -62,6 +62,10 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
+    public static void Alert(System.Web.UI.Page page, string msg)
+    {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "message", "<script type='text/javascript'>alert('" + msg.ToString() + "');</script>");
+    }
 
     protected void logout_Click(object sender, EventArgs e)
     {
@@ -122,6 +126,13 @@ public partial class _Default : System.Web.UI.Page
         goods.DataBind();
         conn.Close();
 
+        
+    }
+
+
+
+    protected void addToShoppingCart_Click(object sender, EventArgs e)
+    {
         
     }
 }

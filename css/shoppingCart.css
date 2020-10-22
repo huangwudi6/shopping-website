@@ -15,11 +15,24 @@
     height: 900px;
 }
 
+.m-title {
+    width: 55%;
+    min-width: 1000px;
+    height: 50px;
+    margin: 50px auto 0;
+    background-color: #FCFCFC;
+    border: 1px solid #E2E2E2;
+    border-bottom:none;
+    display:flex;
+    line-height:50px;
+    color:#184DB0;
+}
+
 .m-main {
     width: 55%;
     min-width: 1000px;
     height: 100%;
-    margin: 50px auto;
+    margin: 0 auto;
     position: relative;
     background-color: #FCFCFC;
     display: flex;
@@ -56,6 +69,18 @@
     padding:19px;
     box-sizing:border-box;
 }
+.th1{
+    width:100px;
+    margin-left:70px;
+}
+.th2{
+    width:250px;
+    margin-left:35px;
+}
+.th3{
+    margin-left:52px;
+    width:60px
+}
 .item-img {
     width: 100px;
     height: 100px;
@@ -71,9 +96,11 @@
     font-size:14px;
 }
 .item-price {
+    width:60px;
     margin-left: 50px;
     font-weight: 700;
     font-family: Verdana,Tahoma,arial;
     color:#3c3c3c;
     font-size:14px;
+    display:inline-block;
 }
