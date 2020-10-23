@@ -46,7 +46,15 @@ public partial class login : System.Web.UI.Page
             if (password1 == dr["password"].ToString())
             {
                 Session["username"] = username1;
-                Response.Redirect("./Default.aspx");
+                if(username1 == "admin")
+                {
+                    Response.Redirect("./admin.aspx");
+                }
+                else
+                {
+                    Response.Redirect("./Default.aspx");
+                }
+                
             }
             else
             {

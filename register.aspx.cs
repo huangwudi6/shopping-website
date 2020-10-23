@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,6 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class register : System.Web.UI.Page
 {
+    static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dzy.mdf;Integrated Security=True";
+    static SqlConnection conn = new SqlConnection(str);
+    //add
+    SqlCommand insertcmd = conn.CreateCommand();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -41,7 +48,13 @@ public partial class register : System.Web.UI.Page
         {
             if (pwd == pwd2)
             {
-                Alert(this, "两次密码一致");
+                insertcmd.CommandText = "insert into users values('" + un + "','" + pwd + "')";
+                conn.Open();
+                insertcmd.ExecuteNonQuery();
+
+                conn.Close();
+                Alert(this, "注册成功！");
+                
             }
             else
             {

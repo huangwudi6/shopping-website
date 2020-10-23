@@ -27,7 +27,7 @@
                         <asp:Label CssClass="book-price" runat="server" Text='￥'>
                             <asp:Label ID="book_price" runat="server" Text="null"></asp:Label>
                         </asp:Label>
-                        <asp:Button runat="server" Text="加入购物车" CssClass="add-btn" />
+                        <asp:Button runat="server" Text="加入购物车" CssClass="add-btn" OnClick="addToShoppingcart_Click" />
                     </div>
                 </div>
             </div>

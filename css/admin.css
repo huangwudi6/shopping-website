@@ -1,0 +1,118 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    width: 100%;
+    height: 180px;
+    /*background-color: #184DB0;*/
+    border-bottom: 3px solid #184DB0;
+}
+
+.middle {
+    width: 100%;
+    height: 900px;
+}
+
+.main {
+    width: 65%;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /*background-color:red;*/
+    display: flex;
+}
+.m-main {
+    width: 65%;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /*background-color:red;*/
+    display: flex;
+    flex-direction:column;
+}
+.logo {
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.title {
+    position: absolute;
+    left: 320px;
+    bottom: 10px;
+    font-size: 22px;
+}
+.th{
+    
+    height:35px;
+    width:100%;
+    background-color:#efefef;
+    display:flex;
+    justify-content:space-around;
+    margin-bottom:50px;
+}
+.th-i{
+    height:100%;
+    width:150px;
+    /*background-color:red;*/
+    text-decoration:none;
+    color:#000;
+    font-size:20px;
+    text-align:center;
+    line-height:35px;
+}
+.selected,.th-i:hover{
+    color:#fff;
+    background-color:#184DB0;
+}
+.goods-item {
+    width: 90%;
+    height: 180px;
+    margin: 0 auto;
+    background-color:#fcfcfc;
+    border-left: 1px solid #E2E2E2;
+    border-top: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+    display:flex;
+}
+.item-img{
+    width:140px;
+    height:140px;
+    margin:20px;
+}
+.item-ti {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 140px;
+    margin: 20px 20px 0 0;
+}
+.item-title{
+    font-size:14px;
+    font-weight:bold;
+}
+.item-info{
+    font-size:10px;
+    margin-top:10px;
+}
+.item-r{
+    display:flex;
+    flex-direction:column;
+    margin-left:40px;
+}
+.item-cis {
+    width:300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 50px 0;
+}
+.item-price {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: Verdana,Tahoma,arial;
+    color: #ff6633;
+}

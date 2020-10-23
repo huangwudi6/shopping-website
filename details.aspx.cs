@@ -26,7 +26,15 @@ public partial class details : System.Web.UI.Page
         //Response.Write(id + "---" + category);
 
         selectcmd.CommandText = "select * from goods where g_id=" + id + " and g_category='" + category + "'";
-        conn.Open();
+        if (conn.State == System.Data.ConnectionState.Closed)
+        {
+            conn.Open();
+        }
+        else
+        {
+            conn.Close();
+            conn.Open();
+        }
         SqlDataReader dr = selectcmd.ExecuteReader();
         if (dr.HasRows)
         {
@@ -43,5 +51,43 @@ public partial class details : System.Web.UI.Page
         }
 
         conn.Close();
+    }
+
+    public static void Alert(System.Web.UI.Page page, string msg)
+    {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "message", "<script type='text/javascript'>alert('" + msg.ToString() + "');</script>");
+    }
+
+    protected void addToShoppingcart_Click(object sender, EventArgs e)
+    {
+        if(Session["username"] == null)
+        {
+            Alert(this, "请登录！");
+            return;
+        }
+        
+        string id = Request.QueryString["id"];
+        string category = Request.QueryString["category"];
+        decimal total = 0;
+        selectcmd.CommandText = "select g_price from goods where g_id=" + id + " and g_category='" + category + "'";
+        conn.Open();
+        SqlDataReader dr = selectcmd.ExecuteReader();
+        if (dr.HasRows)
+        {
+            dr.Read();
+
+            string price = dr["g_price"].ToString();
+            total = decimal.Parse(price);
+
+        }
+
+        conn.Close();
+
+        insertcmd.CommandText = "insert into shoppingcart values('" + id + "','" + category + "', 1 ," + total + ",'" + Session["username"] + "')";
+        conn.Open();
+        insertcmd.ExecuteNonQuery();
+
+        conn.Close();
+        Alert(this, "添加成功");
     }
 }
