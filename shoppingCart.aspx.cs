@@ -32,14 +32,80 @@ public partial class shoppingCart : System.Web.UI.Page
             shopping_cart.DataBind();
             conn.Close();
         }
+
     }
 
     protected void jian_Click(object sender, EventArgs e)
     {
+        string[] estr = (((Button)sender).CommandArgument.ToString()).ToString().Split(',');
 
+        int id = Convert.ToInt32(estr[0]);
+        string category = Convert.ToString(estr[1]);
+        int quantity = Convert.ToInt32(estr[2]);
+        quantity -= 1;
+        updatecmd.CommandText = "update shoppingcart set quantity =" + quantity + " where id=" + id + " and category='" + category + "';";
+        conn.Open();
+        updatecmd.ExecuteNonQuery();
+
+        conn.Close();
+
+        conn.Open();
+        selectcmd.CommandText = "select * from shoppingcart,goods where shoppingcart.id = goods.g_id and shoppingcart.category = goods.g_category and shoppingcart.username = '" + Session["username"] + "';";
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        shopping_cart.DataSource = ds;
+        shopping_cart.DataBind();
+        conn.Close();
     }
 
     protected void jia_Click(object sender, EventArgs e)
+    {
+        string[] estr = (((Button)sender).CommandArgument.ToString()).ToString().Split(',');
+
+        int id = Convert.ToInt32(estr[0]);
+        string category = Convert.ToString(estr[1]);
+        int quantity = Convert.ToInt32(estr[2]);
+        quantity += 1;
+        updatecmd.CommandText = "update shoppingcart set quantity =" + quantity + " where id=" + id + " and category='" + category + "';";
+        conn.Open();
+        updatecmd.ExecuteNonQuery();
+
+        conn.Close();
+
+        conn.Open();
+        selectcmd.CommandText = "select * from shoppingcart,goods where shoppingcart.id = goods.g_id and shoppingcart.category = goods.g_category and shoppingcart.username = '" + Session["username"] + "';";
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        shopping_cart.DataSource = ds;
+        shopping_cart.DataBind();
+        conn.Close();
+    }
+
+    protected void item_del_Click(object sender, EventArgs e)
+    {
+        string[] estr = (((Button)sender).CommandArgument.ToString()).ToString().Split(',');
+
+        int id = Convert.ToInt32(estr[0]);
+        string category = Convert.ToString(estr[1]);
+
+        deletecmd.CommandText = "delete from shoppingcart where id=" + id + " and category='" + category + "';";
+        conn.Open();
+        deletecmd.ExecuteNonQuery();
+        conn.Close();
+
+        conn.Open();
+        selectcmd.CommandText = "select * from shoppingcart,goods where shoppingcart.id = goods.g_id and shoppingcart.category = goods.g_category and shoppingcart.username = '" + Session["username"] + "';";
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        shopping_cart.DataSource = ds;
+        shopping_cart.DataBind();
+        conn.Close();
+    }
+
+    protected void Unnamed3_Click(object sender, EventArgs e)
     {
 
     }

@@ -19,6 +19,7 @@
                 </div>
             </div>
             <div class="middle">
+                <asp:Button runat="server" Text="结算" CssClass="settle" OnClick="Unnamed3_Click" />
                 <div class="m-title">
                     <div class="th1">商品图片</div>
                     <div class="th2">标题</div>
@@ -28,7 +29,7 @@
                 </div>
                 <div class="m-main">
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel runat="server">
+                    <asp:UpdatePanel runat="server" ID="sc">
                         <ContentTemplate>
                             <asp:Repeater runat="server" ID="shopping_cart">
                                 <ItemTemplate>
@@ -39,17 +40,22 @@
                                             <asp:Label runat="server" Text='<% #Eval("g_price") %>'></asp:Label>
                                         </asp:Label>
                                         <div class="item-price">
-                                            <asp:Button CssClass="change-quantity" runat="server" Text="-" ID="jian" OnClick="jian_Click" />
+                                            <asp:Button ClientIDMode="Static" CssClass="change-quantity" runat="server" Text="-" ID="jian1" OnClick="jian_Click" CommandArgument='<%# Eval("id") + "," + Eval("category") + "," + Eval("quantity") %>' />
                                             <asp:Label runat="server" Text='<% #Eval("quantity") %>'></asp:Label>
-                                            <asp:Button CssClass="change-quantity" runat="server" Text="+" ID="jia" OnClick="jia_Click" />
+                                            <asp:Button CssClass="change-quantity" runat="server" Text="+" ID="jia" OnClick="jia_Click" CommandArgument='<%# Eval("id") + "," + Eval("category") + "," + Eval("quantity") %>' />
                                         </div>
                                         <asp:Label CssClass="item-price" runat="server" Text='￥'>
                                             <asp:Label runat="server" Text='<% #Eval("total") %>'></asp:Label>
                                         </asp:Label>
+                                        <asp:Button runat="server" ID="item_del" OnClick="item_del_Click" CommandArgument='<%# Eval("id") + "," + Eval("category") %>' Text="删除该商品" />
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ContentTemplate>
+                        <%--<Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="jian" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="jia" EventName="Click" />
+                        </Triggers>--%>
                     </asp:UpdatePanel>
                 </div>
 
