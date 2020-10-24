@@ -38,9 +38,11 @@
                                         <asp:Label CssClass="item-price" runat="server" Text='￥'>
                                             <asp:Label runat="server" Text='<% #Eval("g_price") %>'></asp:Label>
                                         </asp:Label>
-                                        <asp:Label CssClass="item-price" runat="server" Text='x'>
+                                        <div class="item-price">
+                                            <asp:Button CssClass="change-quantity" runat="server" Text="-" ID="jian" OnClick="jian_Click" />
                                             <asp:Label runat="server" Text='<% #Eval("quantity") %>'></asp:Label>
-                                        </asp:Label>
+                                            <asp:Button CssClass="change-quantity" runat="server" Text="+" ID="jia" OnClick="jia_Click" />
+                                        </div>
                                         <asp:Label CssClass="item-price" runat="server" Text='￥'>
                                             <asp:Label runat="server" Text='<% #Eval("total") %>'></asp:Label>
                                         </asp:Label>

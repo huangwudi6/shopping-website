@@ -33,4 +33,14 @@ public partial class shoppingCart : System.Web.UI.Page
             conn.Close();
         }
     }
+
+    protected void jian_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void jia_Click(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -79,7 +79,7 @@
 }
 .th3{
     margin-left:52px;
-    width:60px
+    width:80px
 }
 .item-img {
     width: 100px;
@@ -96,11 +96,15 @@
     font-size:14px;
 }
 .item-price {
-    width:60px;
+    width:80px;
     margin-left: 50px;
     font-weight: 700;
     font-family: Verdana,Tahoma,arial;
     color:#3c3c3c;
     font-size:14px;
     display:inline-block;
+}
+.change-quantity{
+    width:20px;
+    height:20px;
 }

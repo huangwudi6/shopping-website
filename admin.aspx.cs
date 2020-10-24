@@ -64,11 +64,24 @@ public partial class admin : System.Web.UI.Page
         }
     }
 
+    public static void Alert(System.Web.UI.Page page, string msg)
+    {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "message", "<script type='text/javascript'>alert('" + msg.ToString() + "');</script>");
+    }
+
     protected void addGoods_Click(object sender, EventArgs e)
     {
         
-        string imgurl = Server.MapPath("./images/") + upload_category.Text + "\\" + upload_id.Text + ".jpg";
-        upload_img.SaveAs("C:\\Users\\83425\\source\\repos\\dzy\\images\\ts\\789.jpg");
+        string imgurl = Server.MapPath("./images/" + upload_category.Text + "/" + upload_id.Text + ".jpg");
+        if (FileUpload1.HasFile)
+        {
+            string endpath = Server.MapPath(imgurl);//映射绝对路径
+            upload_img.SaveAs(endpath);
+        }
+        else
+        {
+            Alert(this, "error");
+        }
 
         insertcmd.CommandText = "insert into goods values('" + upload_title.Text + "'," + decimal.Parse(upload_price.Text) + ", " + int.Parse(upload_stock.Text) + " ,'" + upload_category.Text + "','" + imgurl + "'," + int.Parse(upload_id.Text) + ",'" + upload_info.Text + "')";
         conn.Open();
