@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="middle">
-                <asp:Button runat="server" Text="结算" CssClass="settle" OnClick="Unnamed3_Click" />
+                <asp:Button runat="server" Text="结算" CssClass="settle" ID="settle" OnClick="settle_Click" />
                 <div class="m-title">
                     <div class="th1">商品图片</div>
                     <div class="th2">标题</div>

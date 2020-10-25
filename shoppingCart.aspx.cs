@@ -105,8 +105,65 @@ public partial class shoppingCart : System.Web.UI.Page
         conn.Close();
     }
 
-    protected void Unnamed3_Click(object sender, EventArgs e)
+    public static void Alert(System.Web.UI.Page page, string msg)
     {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "message", "<script type='text/javascript'>alert('" + msg.ToString() + "');</script>");
+    }
 
+    protected void settle_Click(object sender, EventArgs e)
+    {
+        TimeSpan ts = DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        string orderid = Convert.ToInt64(ts.TotalSeconds).ToString();
+
+        insertcmd.CommandText = "insert into order1 values('" + orderid + "','" + Session["username"] + "')";
+        conn.Open();
+        insertcmd.ExecuteNonQuery();
+        conn.Close();
+
+        conn.Open();
+        selectcmd.CommandText = "select * from shoppingcart,goods where shoppingcart.id = goods.g_id and shoppingcart.category = goods.g_category and shoppingcart.username = '" + Session["username"] + "';";
+        SqlDataReader dr = selectcmd.ExecuteReader();
+
+        string[] id = new string[100];
+        string[] category = new string[100];
+        string[] quantity = new string[100];
+        int i = 0;
+        if (dr.HasRows)
+        {
+            while (dr.Read())
+            {
+                id[i] = dr["id"].ToString();
+                category[i] = dr["category"].ToString();
+                quantity[i] = dr["quantity"].ToString();
+                i++;
+            }
+
+        }
+        conn.Close();
+
+        for(int j = 0; j < i; j++)
+        {
+            conn.Open();
+            insertcmd.CommandText = "insert into order2 values('" + id[j] + "','" + category[j] + "','" + orderid + "','" + quantity[j] + "')";
+            insertcmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        
+
+        deletecmd.CommandText = "delete from shoppingcart";
+        conn.Open();
+        deletecmd.ExecuteNonQuery();
+        conn.Close();
+
+        conn.Open();
+        selectcmd.CommandText = "select * from shoppingcart,goods where shoppingcart.id = goods.g_id and shoppingcart.category = goods.g_category and shoppingcart.username = '" + Session["username"] + "';";
+        DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(selectcmd);
+        da.Fill(ds);
+        shopping_cart.DataSource = ds;
+        shopping_cart.DataBind();
+        conn.Close();
+
+        Alert(this, "下单成功！");
     }
 }

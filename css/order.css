@@ -1,0 +1,38 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    width: 100%;
+    height: 180px;
+    /*background-color: #184DB0;*/
+    border-bottom: 3px solid #184DB0;
+}
+
+.main {
+    width: 65%;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /*background-color:red;*/
+    display: flex;
+}
+
+.logo {
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.middle {
+    width: 100%;
+    position: relative;
+}
+.title {
+    position: absolute;
+    left: 320px;
+    bottom: 10px;
+    font-size: 22px;
+}
