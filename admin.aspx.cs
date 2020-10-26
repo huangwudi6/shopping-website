@@ -71,8 +71,8 @@ public partial class admin : System.Web.UI.Page
 
     protected void addGoods_Click(object sender, EventArgs e)
     {
-        
-        string imgurl = Server.MapPath("./images/" + upload_category.Text + "/" + upload_id.Text + ".jpg");
+        string tempurl = "./images/" + upload_category.Text + "/" + upload_id.Text + ".jpg";
+        string imgurl = Server.MapPath(tempurl);
         if (FileUpload1.HasFile)
         {
             string endpath = Server.MapPath(imgurl);//映射绝对路径
@@ -83,7 +83,7 @@ public partial class admin : System.Web.UI.Page
             Alert(this, "error");
         }
 
-        insertcmd.CommandText = "insert into goods values('" + upload_title.Text + "'," + decimal.Parse(upload_price.Text) + ", " + int.Parse(upload_stock.Text) + " ,'" + upload_category.Text + "','" + imgurl + "'," + int.Parse(upload_id.Text) + ",'" + upload_info.Text + "')";
+        insertcmd.CommandText = "insert into goods values(N'" + upload_title.Text + "'," + decimal.Parse(upload_price.Text) + ", " + int.Parse(upload_stock.Text) + " ,'" + upload_category.Text + "','" + tempurl + "'," + int.Parse(upload_id.Text) + ",N'" + upload_info.Text + "')";
         conn.Open();
         insertcmd.ExecuteNonQuery();
 
@@ -92,11 +92,17 @@ public partial class admin : System.Web.UI.Page
 
     protected void updateGoods_Click(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void delGoods_Click(object sender, EventArgs e)
     {
+        string category = del_category.Text;
+        int id = int.Parse(del_id.Text);
+        deletecmd.CommandText = "delete from goods where g_id="+ id +" and g_category = '" + category + "';";
+        conn.Open();
+        deletecmd.ExecuteNonQuery();
 
+        conn.Close();
     }
 }

@@ -27,6 +27,7 @@
                     <asp:HyperLink ID="register" runat="server" CssClass="register l-r" NavigateUrl="./register.aspx" Target="_self" Text="注册"></asp:HyperLink>
 
                     <asp:Label ID="user_welcome" runat="server" CssClass="user-welcome" Visible="False"></asp:Label>
+                    <asp:HyperLink ID="order" runat="server" CssClass="order l-r" NavigateUrl="./order.aspx" Target="_self" Text="我的订单" Visible="False"></asp:HyperLink>
                     <div class="l-r shopping-cart">
                         <asp:Image ID="shoppingCartImg" ImageUrl="./images/shoppingCart.png" runat="server" CssClass="shopping-cart-img" Visible="False" />
                         <asp:HyperLink ID="shoppingCart" runat="server" Text="购物车" NavigateUrl="./shoppingCart.aspx" Target="_blank" Visible="False"></asp:HyperLink>

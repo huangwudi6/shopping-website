@@ -34,6 +34,7 @@ public partial class _Default : System.Web.UI.Page
             logout.Visible = true;
             shoppingCart.Visible = true;
             shoppingCartImg.Visible = true;
+            order.Visible = true;
 
         }
         else
@@ -45,7 +46,7 @@ public partial class _Default : System.Web.UI.Page
             logout.Visible = false;
             shoppingCart.Visible = false;
             shoppingCartImg.Visible = false;
-
+            order.Visible = false;
 
         }
         if (!IsPostBack)

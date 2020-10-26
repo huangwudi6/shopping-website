@@ -71,8 +71,8 @@
                                 <asp:Button runat="server" OnClick="addGoods_Click" Text="添加商品" />
                             </asp:Panel>
                             <asp:Panel runat="server" ID="panel3" Visible="False">
-                                <asp:TextBox runat="server" placeholder="商品分类"></asp:TextBox>
-                                <asp:TextBox runat="server" placeholder="商品ID"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="del_category" placeholder="商品分类"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="del_id" placeholder="商品ID"></asp:TextBox>
                                 <br />
                                 <asp:Button runat="server" OnClick="delGoods_Click" Text="删除该商品" />
                             </asp:Panel>

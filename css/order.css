@@ -36,3 +36,37 @@
     bottom: 10px;
     font-size: 22px;
 }
+.order-item {
+    background-color: #FCFCFC;
+    width: 60%;
+    
+    margin: 0 auto 50px;
+    border: 1px solid #E2E2E2;
+    border-bottom:none;
+}
+.order-item:first-child{
+    margin-top:50px;
+}
+.th {
+    border-bottom: 1px solid #E2E2E2;
+    width:100%;
+    display:block;
+    padding:10px;
+}
+.item-image{
+    width:120px;
+    height:120px;
+    margin:20px;
+}
+.item-name{
+    width:300px;
+}
+.item-quantity{
+    margin-left:50px;
+}
+.good-item {
+    border-bottom: 1px solid #E2E2E2;
+    width: 100%;
+    display:flex;
+    align-items:center;
+}
