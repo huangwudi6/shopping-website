@@ -85,7 +85,7 @@
                                 <asp:TextBox runat="server" placeholder="库存"></asp:TextBox>
                                 <asp:TextBox runat="server" placeholder="价格"></asp:TextBox>
                                 <br />
-                                <asp:Button runat="server" OnClick="updateGoods_Click" Text="修改商品" />
+                                <asp:Button runat="server" OnClick="updateGoods_Click" Text="修改商品" OnClientClick="alert('商品信息更新成功！');return false;" />
                             </asp:Panel>
                         </ContentTemplate>
                         <Triggers>

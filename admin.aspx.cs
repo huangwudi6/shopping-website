@@ -92,7 +92,9 @@ public partial class admin : System.Web.UI.Page
 
     protected void updateGoods_Click(object sender, EventArgs e)
     {
-        
+        delGoods_Click(sender,e);
+        addGoods_Click(sender, e);
+        Alert(this, "商品信息更新成功");
     }
 
     protected void delGoods_Click(object sender, EventArgs e)
