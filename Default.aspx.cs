@@ -134,6 +134,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void addToShoppingCart_Click(object sender, EventArgs e)
     {
+        if (Session["username"] == null)
+        {
+            Alert(this, "请先登录");
+            return;
+        }
         int id = int.Parse((((Button)sender).CommandArgument.ToString()).ToString());
         decimal total = 0;
         selectcmd.CommandText = "select g_price from goods where g_id=" + id + " and g_category='" + category + "'";
@@ -156,6 +161,15 @@ public partial class _Default : System.Web.UI.Page
         insertcmd.ExecuteNonQuery();
 
         conn.Close();
+    }
+
+    protected void gm_Click(object sender, EventArgs e)
+    {
+        if (Session["username"] == null)
+        {
+            Alert(this, "请先登录");
+            return;
+        }
     }
 
     protected void toDetails_Click(object sender, ImageClickEventArgs e)

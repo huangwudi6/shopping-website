@@ -102,7 +102,7 @@
                                                 </div>
                                                 <div class="pay">
                                                     <asp:Button runat="server" CssClass="pay-btn" ID="addToShoppingCart" CommandArgument='<% #Eval("g_id") %>' Text="加入购物车" OnClick="addToShoppingCart_Click" OnClientClick="alert('添加成功！')" />
-                                                    <asp:Button runat="server" CssClass="pay-btn" Text="立即购买" />
+                                                    <asp:Button runat="server" CssClass="pay-btn" OnClick="gm_Click" Text="立即购买" OnClientClick="alert('购买成功！')" />
                                                 </div>
                                             </div>
                                         </ItemTemplate>
